@@ -686,25 +686,14 @@ function Be() {
             required: !0,
             className: "w-full resize-none border-b border-[#dfba73]/40 bg-transparent px-1 py-2 text-base sm:text-lg text-[#fdfbf7] placeholder:text-[#fdfbf7]/40 focus:border-[#dfba73] focus:outline-none"
           }),
-          (0, C.jsxs)("div", {
-            className: "flex gap-2 pt-2",
-            children: [
-              (0, C.jsx)("button", {
-                type: "submit",
-                disabled: o,
-                className: "flex-1 rounded-full border border-[#dfba73] bg-[#0b3a2d] px-5 py-3 font-['Cinzel'] text-xs tracking-[0.3em] text-[#fdfbf7] transition hover:bg-[#072920] disabled:opacity-60 shadow-md cursor-pointer",
-                children: c ? "UPDATE WISH" : "SEND WISH"
-              }),
-              c &&
-                (0, C.jsx)("button", {
-                  type: "button",
-                  onClick: () => {
-                    l(null), r(""), a("");
-                  },
-                  className: "rounded-full border border-[#dfba73]/50 px-4 text-xs tracking-widest text-[#dfba73] cursor-pointer",
-                  children: "CANCEL"
-                })
-            ]
+          (0, C.jsx)("div", {
+            className: "pt-2",
+            children: (0, C.jsx)("button", {
+              type: "submit",
+              disabled: o,
+              className: "w-full rounded-full border border-[#dfba73] bg-[#0b3a2d] px-5 py-3 font-['Cinzel'] text-xs tracking-[0.3em] text-[#fdfbf7] transition hover:bg-[#072920] disabled:opacity-60 shadow-md cursor-pointer",
+              children: "SEND WISH"
+            })
           })
         ]
       }),
@@ -717,25 +706,9 @@ function Be() {
               className: "emerald-card rounded-sm p-4 text-[#fdfbf7] shadow-lg text-left",
               children: [
                 (0, C.jsx)("p", { className: "whitespace-pre-wrap text-base sm:text-lg leading-relaxed font-serif text-[#fdfbf7]/90", children: e.message }),
-                (0, C.jsxs)("div", {
-                  className: "mt-3 flex items-center justify-between border-t border-[#dfba73]/20 pt-2",
-                  children: [
-                    (0, C.jsxs)("span", { className: "font-['Cinzel'] text-xs tracking-[0.2em] text-[#dfba73] font-medium", children: ["— ", e.guest_name] }),
-                    (0, C.jsxs)("div", {
-                      className: "flex gap-3 text-xs tracking-widest text-[#dfba73]/80",
-                      children: [
-                        (0, C.jsx)("button", {
-                          type: "button",
-                          onClick: () => {
-                            l(e.id), r(e.guest_name), a(e.message);
-                          },
-                          className: "hover:underline cursor-pointer",
-                          children: "EDIT"
-                        }),
-                        (0, C.jsx)("button", { type: "button", onClick: () => d(e.id), className: "hover:underline cursor-pointer", children: "DELETE" })
-                      ]
-                    })
-                  ]
+                (0, C.jsx)("div", {
+                  className: "mt-3 border-t border-[#dfba73]/20 pt-2",
+                  children: (0, C.jsxs)("span", { className: "font-['Cinzel'] text-xs tracking-[0.2em] text-[#dfba73] font-medium", children: ["— ", e.guest_name] })
                 })
               ]
             },
