@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 const appCode = `
-var Te = "./assets/couple.jpg",
+var Te = "./assets/couple.jpg?v=2",
     Ee = "./assets/petal.png",
     w = "./audio/wedding-invitation.mp3",
     T = new Date("2027-01-09T11:00:00+05:30").getTime(),
@@ -791,7 +791,7 @@ function He({ stage: e, onStartOpen: t }) {
                 }),
                 (0, C.jsx)("div", {
                   className: "relative mx-auto my-2 max-w-[210px] sm:max-w-[240px] overflow-hidden rounded-sm border border-[#dfba73]/50 shadow-2xl",
-                  children: (0, C.jsx)("img", { src: Te, alt: "Chris & Jyothis Couple", width: 853, height: 1024, className: "w-full object-cover" })
+                  children: (0, C.jsx)("img", { src: Te, alt: "Chris & Jyothis Couple", width: 896, height: 1200, className: "w-full object-cover" })
                 }),
                 (0, C.jsxs)("div", {
                   className: "relative pb-3",
