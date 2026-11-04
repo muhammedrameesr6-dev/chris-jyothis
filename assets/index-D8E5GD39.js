@@ -983,20 +983,21 @@ function Ge() {
         children: [
           (0, C.jsx)(Ue, { children: "THE CELEBRATION" }),
           (0, C.jsxs)("div", {
-            className: "emerald-card mx-auto max-w-md rounded-sm p-6 sm:p-8 text-[#fdfbf7] shadow-2xl bg-[#041c16]/75 border border-[#dfba73]/40 space-y-6",
+            className: "emerald-card mx-auto max-w-md rounded-sm p-6 sm:p-8 text-[#fdfbf7] shadow-2xl bg-[#041c16]/75 border border-[#dfba73]/40 space-y-6 text-center",
             children: [
               (0, C.jsxs)("div", {
-                className: "border-b border-[#dfba73]/30 pb-5",
+                className: "space-y-2",
                 children: [
                   (0, C.jsx)("div", {
-                    className: "mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-[#dfba73]/15 text-[#dfba73]",
-                    children: (0, C.jsx)(CrossIcon, { className: "h-5 w-4 text-[#dfba73]" })
+                    className: "mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#dfba73]/15 text-[#dfba73] border border-[#dfba73]/30 shadow-inner",
+                    style: { width: "48px", height: "48px", minWidth: "48px", minHeight: "48px" },
+                    children: (0, C.jsx)(CrossIcon, { className: "h-6 w-5 text-[#dfba73]" })
                   }),
-                  (0, C.jsx)("p", { className: "mt-2.5 font-['Cinzel'] text-lg sm:text-xl tracking-wider text-[#dfba73] font-bold uppercase", children: "Wedding Ceremony" }),
-                  (0, C.jsx)("p", { className: "text-sm sm:text-base font-serif text-[#fdfbf7]/90 mt-1", children: "St. Thomas Mar Thoma Church, Niranam" }),
-                  (0, C.jsx)("p", { className: "text-xs sm:text-sm font-serif italic text-[#dfba73]/90 mt-1", children: "Solemnized by His Grace Rt. Rev. Dr. Gregorios Mar Stephanos Episcopa" }),
+                  (0, C.jsx)("p", { className: "pt-1 font-['Cinzel'] text-xl sm:text-2xl tracking-wider text-[#dfba73] font-bold uppercase", children: "Wedding Ceremony" }),
+                  (0, C.jsx)("p", { className: "text-base sm:text-lg font-serif text-[#fdfbf7]/90", children: "St. Thomas Mar Thoma Church, Niranam" }),
+                  (0, C.jsx)("p", { className: "text-xs sm:text-sm font-serif italic text-[#dfba73]/90", children: "Solemnized by His Grace Rt. Rev. Dr. Gregorios Mar Stephanos Episcopa" }),
                   (0, C.jsxs)("div", {
-                    className: "mt-3 flex items-center justify-center gap-4 text-xs sm:text-sm font-serif text-[#f5d58f]",
+                    className: "pt-2 flex items-center justify-center gap-4 text-xs sm:text-sm font-serif text-[#f5d58f]",
                     children: [
                       (0, C.jsxs)("span", { className: "flex items-center gap-1.5", children: [(0, C.jsx)(de, { className: "h-3.5 w-3.5 text-[#dfba73]" }), "Saturday, 9 Jan 2027"] }),
                       (0, C.jsxs)("span", { className: "flex items-center gap-1.5", children: [(0, C.jsx)(pe, { className: "h-3.5 w-3.5 text-[#dfba73]" }), "11:00 AM"] })
@@ -1004,17 +1005,19 @@ function Ge() {
                   })
                 ]
               }),
+              (0, C.jsx)(Ae, { className: "mx-auto my-5 h-2.5 w-36 text-[#dfba73]/50" }),
               (0, C.jsxs)("div", {
-                className: "pt-1",
+                className: "space-y-2",
                 children: [
                   (0, C.jsx)("div", {
-                    className: "mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-[#dfba73]/15 text-[#dfba73]",
+                    className: "mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#dfba73]/15 text-[#dfba73] border border-[#dfba73]/30 shadow-inner",
+                    style: { width: "48px", height: "48px", minWidth: "48px", minHeight: "48px" },
                     children: (0, C.jsx)(he, { className: "h-5 w-5 text-[#dfba73]" })
                   }),
-                  (0, C.jsx)("p", { className: "mt-2.5 font-['Cinzel'] text-lg sm:text-xl tracking-wider text-[#dfba73] font-bold uppercase", children: "Reception" }),
-                  (0, C.jsx)("p", { className: "text-sm sm:text-base font-serif text-[#fdfbf7]/90 mt-1", children: "Parish Hall of St. Thomas Mar Thoma Church, Niranam" }),
+                  (0, C.jsx)("p", { className: "pt-1 font-['Cinzel'] text-xl sm:text-2xl tracking-wider text-[#dfba73] font-bold uppercase", children: "Reception" }),
+                  (0, C.jsx)("p", { className: "text-base sm:text-lg font-serif text-[#fdfbf7]/90", children: "Parish Hall of St. Thomas Mar Thoma Church, Niranam" }),
                   (0, C.jsxs)("div", {
-                    className: "mt-3 flex items-center justify-center gap-1.5 text-xs sm:text-sm font-serif text-[#f5d58f]",
+                    className: "pt-1 flex items-center justify-center gap-1.5 text-xs sm:text-sm font-serif text-[#f5d58f]",
                     children: [(0, C.jsx)(pe, { className: "h-3.5 w-3.5 text-[#dfba73]" }), "12:30 PM Onwards"]
                   })
                 ]
@@ -1024,7 +1027,22 @@ function Ge() {
                 target: "_blank",
                 rel: "noopener noreferrer",
                 className: "mt-6 inline-flex items-center justify-center gap-2 rounded-full border border-[#dfba73] bg-[#072920] px-7 py-3 font-['Cinzel'] text-xs tracking-[0.3em] text-[#f5d58f] transition hover:bg-[#0b3a2d] shadow-lg cursor-pointer",
-                children: [(0, C.jsx)(pe, { className: "h-3.5 w-3.5" }), "VENUE LOCATION"]
+                children: [
+                  (0, C.jsxs)("svg", {
+                    viewBox: "0 0 24 24",
+                    fill: "none",
+                    stroke: "currentColor",
+                    strokeWidth: "2",
+                    strokeLinecap: "round",
+                    strokeLinejoin: "round",
+                    className: "h-3.5 w-3.5",
+                    children: [
+                      (0, C.jsx)("path", { d: "M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" }),
+                      (0, C.jsx)("circle", { cx: "12", cy: "10", r: "3" })
+                    ]
+                  }),
+                  "VENUE LOCATION"
+                ]
               })
             ]
           })
@@ -1101,37 +1119,6 @@ function Ge() {
                     children: "“This is the day the LORD has made; let us rejoice and be glad in it.”"
                   }),
                   (0, C.jsx)("p", { className: "text-xs uppercase tracking-widest text-[#dfba73] font-['Cinzel']", children: "— Psalms 118:24" })
-                ]
-              })
-            ]
-          })
-        ]
-      }),
-      (0, C.jsxs)(We, {
-        className: "py-12",
-        children: [
-          (0, C.jsx)(Ue, { children: "CORDIALLY INVITED" }),
-          (0, C.jsxs)("div", {
-            className: "emerald-card mx-auto max-w-md rounded-sm p-6 sm:p-7 text-[#fdfbf7] shadow-2xl border border-[#dfba73]/40 text-center space-y-3",
-            children: [
-              (0, C.jsx)("p", { className: "font-['Cinzel'] text-xs uppercase tracking-[0.3em] text-[#dfba73]", children: "RSVP & Enquiries" }),
-              (0, C.jsx)("p", { className: "font-serif text-xl sm:text-2xl text-[#fdfbf7] font-semibold", children: "Ashly Shibu Cherian" }),
-              (0, C.jsx)("p", { className: "font-['Cinzel'] text-base sm:text-lg text-[#f5d58f] tracking-widest", children: "+91 9447753000" }),
-              (0, C.jsxs)("div", {
-                className: "flex items-center justify-center gap-3 pt-3",
-                children: [
-                  (0, C.jsxs)("a", {
-                    href: "tel:+919447753000",
-                    className: "inline-flex items-center gap-1.5 rounded-full border border-[#dfba73] bg-[#0b3a2d] px-5 py-2.5 font-['Cinzel'] text-[11px] tracking-widest text-[#f5d58f] transition hover:bg-[#072920] shadow-md cursor-pointer",
-                    children: ["📞 CALL"]
-                  }),
-                  (0, C.jsxs)("a", {
-                    href: "https://wa.me/919447753000?text=Hi%20Ashly,%20regarding%20Chris%20%26%20Jyothis%20Wedding",
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                    className: "inline-flex items-center gap-1.5 rounded-full border border-[#25D366] bg-[#072920] px-5 py-2.5 font-['Cinzel'] text-[11px] tracking-widest text-[#25D366] transition hover:bg-[#0b3a2d] shadow-md cursor-pointer",
-                    children: ["💬 WHATSAPP"]
-                  })
                 ]
               })
             ]
