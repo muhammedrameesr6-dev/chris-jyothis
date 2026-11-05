@@ -1011,7 +1011,19 @@ function Ge() {
                   }),
                   (0, C.jsx)("p", { className: "pt-1 font-['Cinzel'] text-xl sm:text-2xl tracking-wider text-[#dfba73] font-bold uppercase", children: "Wedding Ceremony" }),
                   (0, C.jsx)("p", { className: "text-base sm:text-lg font-serif text-[#fdfbf7]/90", children: "St. Thomas Mar Thoma Church, Niranam" }),
-                  (0, C.jsx)("p", { className: "text-xs sm:text-sm font-serif italic text-[#dfba73]/90", children: "Solemnized by His Grace Rt. Rev. Dr. Gregorios Mar Stephanos Episcopa" }),
+                  (0, C.jsxs)("div", {
+                    className: "pt-2 pb-1 space-y-1 text-center",
+                    children: [
+                      (0, C.jsx)("p", {
+                        className: "font-serif text-xs sm:text-sm italic text-[#dfba73]/80 tracking-wider",
+                        children: "Solemnized by"
+                      }),
+                      (0, C.jsx)("p", {
+                        className: "font-serif text-base sm:text-lg font-bold text-[#f5d58f] drop-shadow tracking-wide px-2 leading-snug",
+                        children: "His Grace Rt. Rev. Dr. Gregorios Mar Stephanos Episcopa"
+                      })
+                    ]
+                  }),
                   (0, C.jsxs)("div", {
                     className: "pt-3 flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-base sm:text-lg font-semibold text-[#f5d58f]",
                     children: [
@@ -1073,12 +1085,13 @@ function Ge() {
             className: "space-y-10 max-w-lg mx-auto",
             children: [
               (0, C.jsxs)("div", {
-                className: "emerald-card p-6 rounded-sm border border-[#dfba73]/35 text-center shadow-xl space-y-2",
+                className: "emerald-card p-6 rounded-sm border border-[#dfba73]/35 text-center shadow-xl space-y-2.5",
                 children: [
                   (0, C.jsx)("p", { className: "font-['Cinzel'] text-xs uppercase tracking-[0.3em] text-[#dfba73]/80", children: "Groom" }),
                   (0, C.jsx)("p", { className: "font-['Great_Vibes'] text-4xl sm:text-5xl text-[#dfba73]", children: "Chris Shibu Cherian" }),
                   (0, C.jsx)("p", { className: "text-base sm:text-lg text-[#fdfbf7]/90 font-serif pt-1", children: "Son of Mr. Shibu Cherian & Mrs. Somy Shibu Cherian" }),
-                  (0, C.jsx)("p", { className: "text-xs sm:text-sm text-[#dfba73] font-serif italic", children: "Kalappurackal Mammoottil House, Anaparampal P.O., Thalavady" }),
+                  (0, C.jsx)("p", { className: "text-sm sm:text-base text-[#f5d58f] font-serif font-bold tracking-wide leading-snug px-2", children: "Kalappurackal Mammoottil House, Anaparampal P.O., Thalavady" }),
+                  (0, C.jsxs)("p", { className: "text-sm sm:text-base font-serif text-[#fdfbf7]/90 pt-0.5", children: [(0, C.jsx)("span", { className: "font-['Cinzel'] text-[11px] sm:text-xs uppercase tracking-wider text-[#dfba73] font-semibold", children: "Sibling: " }), "Ashly Shibu Cherian"] }),
                   (0, C.jsx)(Ae, { className: "mx-auto my-3 h-2 w-28 text-[#dfba73]/50" }),
                   (0, C.jsxs)("div", {
                     className: "text-xs sm:text-sm font-serif text-[#fdfbf7]/75 space-y-1 pt-1",
@@ -1093,12 +1106,13 @@ function Ge() {
               }),
               (0, C.jsx)(ke, { className: "text-[#dfba73]/70" }),
               (0, C.jsxs)("div", {
-                className: "emerald-card p-6 rounded-sm border border-[#dfba73]/35 text-center shadow-xl space-y-2",
+                className: "emerald-card p-6 rounded-sm border border-[#dfba73]/35 text-center shadow-xl space-y-2.5",
                 children: [
                   (0, C.jsx)("p", { className: "font-['Cinzel'] text-xs uppercase tracking-[0.3em] text-[#dfba73]/80", children: "Bride" }),
                   (0, C.jsx)("p", { className: "font-['Great_Vibes'] text-4xl sm:text-5xl text-[#dfba73]", children: "Jyothis Jose" }),
                   (0, C.jsx)("p", { className: "text-base sm:text-lg text-[#fdfbf7]/90 font-serif pt-1", children: "Daughter of Mr. Geevarghese Jose & Mrs. Mariamma Jose" }),
-                  (0, C.jsx)("p", { className: "text-xs sm:text-sm text-[#dfba73] font-serif italic", children: "Porikkannivila House, Vayakkal P.O., Valakom" }),
+                  (0, C.jsx)("p", { className: "text-sm sm:text-base text-[#f5d58f] font-serif font-bold tracking-wide leading-snug px-2", children: "Porikkannivila House, Vayakkal P.O., Valakom" }),
+                  (0, C.jsxs)("p", { className: "text-sm sm:text-base font-serif text-[#fdfbf7]/90 pt-0.5", children: [(0, C.jsx)("span", { className: "font-['Cinzel'] text-[11px] sm:text-xs uppercase tracking-wider text-[#dfba73] font-semibold", children: "Sibling: " }), "Joice Jose"] }),
                   (0, C.jsx)(Ae, { className: "mx-auto my-3 h-2 w-28 text-[#dfba73]/50" }),
                   (0, C.jsxs)("div", {
                     className: "text-xs sm:text-sm font-serif text-[#fdfbf7]/75 space-y-1 pt-1",
@@ -1165,6 +1179,19 @@ function Ge() {
               (0, C.jsx)("div", {
                 className: "pt-6",
                 children: (0, C.jsx)("p", { className: "font-['Great_Vibes'] text-5xl sm:text-6xl text-[#dfba73]", children: "Chris & Jyothis" })
+              }),
+              (0, C.jsxs)("div", {
+                className: "pt-6 pb-2 text-center",
+                children: [
+                  (0, C.jsxs)("a", {
+                    href: "tel:+919447753000",
+                    className: "inline-flex items-center gap-1.5 font-['Cinzel'] text-[11px] sm:text-xs tracking-[0.25em] text-[#dfba73]/85 hover:text-[#f5d58f] uppercase transition-colors py-1.5 px-4 rounded-full border border-[#dfba73]/30 bg-[#072920]/60 shadow-sm",
+                    children: [
+                      (0, C.jsx)("span", { className: "font-bold text-[#dfba73]", children: "RSVP :" }),
+                      " +91 9447753000"
+                    ]
+                  })
+                ]
               })
             ]
           })
