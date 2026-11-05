@@ -88,9 +88,12 @@ function Ae({ className = "" }) {
   });
 }
 
-function CrossIcon({ className = "" }) {
+function CrossIcon({ className = "", style = {} }) {
   return (0, C.jsxs)("svg", {
     viewBox: "0 0 24 32",
+    width: "24",
+    height: "32",
+    style: { width: "24px", height: "32px", display: "inline-block", ...style },
     fill: "none",
     className: className,
     xmlns: "http://www.w3.org/2000/svg",
@@ -1143,7 +1146,6 @@ function Ge() {
       (0, C.jsxs)(We, {
         className: "pt-12 pb-28",
         children: [
-          (0, C.jsx)(CrossIcon, { className: "mx-auto h-10 w-7 text-[#dfba73] drop-shadow-md mb-2" }),
           (0, C.jsx)(ke, { className: "text-[#dfba73]" }),
           (0, C.jsxs)("div", {
             className: "mt-8 space-y-4 max-w-md mx-auto",
