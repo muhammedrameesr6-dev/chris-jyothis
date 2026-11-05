@@ -1006,10 +1006,11 @@ function Ge() {
                   (0, C.jsx)("p", { className: "text-base sm:text-lg font-serif text-[#fdfbf7]/90", children: "St. Thomas Mar Thoma Church, Niranam" }),
                   (0, C.jsx)("p", { className: "text-xs sm:text-sm font-serif italic text-[#dfba73]/90", children: "Solemnized by His Grace Rt. Rev. Dr. Gregorios Mar Stephanos Episcopa" }),
                   (0, C.jsxs)("div", {
-                    className: "pt-2 flex items-center justify-center gap-4 text-xs sm:text-sm font-serif text-[#f5d58f]",
+                    className: "pt-3 flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-base sm:text-lg font-semibold text-[#f5d58f]",
                     children: [
-                      (0, C.jsxs)("span", { className: "flex items-center gap-1.5", children: [(0, C.jsx)(de, { className: "h-3.5 w-3.5 text-[#dfba73]" }), "Saturday, 9 Jan 2027"] }),
-                      (0, C.jsxs)("span", { className: "flex items-center gap-1.5", children: [(0, C.jsx)(pe, { className: "h-3.5 w-3.5 text-[#dfba73]" }), "11:00 AM"] })
+                      (0, C.jsxs)("span", { className: "inline-flex items-center gap-2", children: [(0, C.jsx)(de, { className: "h-5 w-5 text-[#dfba73]" }), "Saturday, 9 Jan 2027"] }),
+                      (0, C.jsx)("span", { className: "text-[#dfba73]/50", children: "•" }),
+                      (0, C.jsxs)("span", { className: "inline-flex items-center gap-2", children: [(0, C.jsx)(pe, { className: "h-5 w-5 text-[#dfba73]" }), "11:00 AM"] })
                     ]
                   })
                 ]
@@ -1026,8 +1027,8 @@ function Ge() {
                   (0, C.jsx)("p", { className: "pt-1 font-['Cinzel'] text-xl sm:text-2xl tracking-wider text-[#dfba73] font-bold uppercase", children: "Reception" }),
                   (0, C.jsx)("p", { className: "text-base sm:text-lg font-serif text-[#fdfbf7]/90", children: "Parish Hall of St. Thomas Mar Thoma Church, Niranam" }),
                   (0, C.jsxs)("div", {
-                    className: "pt-1 flex items-center justify-center gap-1.5 text-xs sm:text-sm font-serif text-[#f5d58f]",
-                    children: [(0, C.jsx)(pe, { className: "h-3.5 w-3.5 text-[#dfba73]" }), "12:30 PM Onwards"]
+                    className: "pt-3 flex items-center justify-center gap-2 text-base sm:text-lg font-semibold text-[#f5d58f]",
+                    children: [(0, C.jsx)(pe, { className: "h-5 w-5 text-[#dfba73]" }), "12:30 PM Onwards"]
                   })
                 ]
               }),
