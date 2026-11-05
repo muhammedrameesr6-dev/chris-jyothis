@@ -720,9 +720,8 @@ function Ve() {
   return (0, C.jsxs)("div", {
     className: "mx-auto max-w-xs text-center py-2",
     children: [
-      (0, C.jsx)("p", { className: "font-['Cinzel'] text-xs sm:text-sm tracking-[0.45em] text-[#dfba73] uppercase font-medium", children: "J A N U A R Y" }),
       (0, C.jsxs)("div", {
-        className: "my-2.5 flex items-center justify-center gap-2",
+        className: "my-2 flex items-center justify-center gap-2",
         children: [
           (0, C.jsx)("span", { className: "h-px flex-1 bg-[#dfba73]/50" }),
           (0, C.jsx)("span", { className: "h-1.5 w-1.5 rotate-45 border border-[#dfba73] bg-[#dfba73]" }),
@@ -730,22 +729,21 @@ function Ve() {
         ]
       }),
       (0, C.jsxs)("div", {
-        className: "flex items-center justify-between px-2 py-1",
+        className: "flex items-center justify-between px-3 py-1",
         children: [
-          (0, C.jsx)("span", { className: "font-['Cinzel'] text-xs sm:text-[13px] tracking-[0.25em] text-[#dfba73] uppercase font-medium", children: "S A T U R D A Y" }),
+          (0, C.jsx)("span", { className: "font-['Cinzel'] text-xs sm:text-sm tracking-[0.3em] text-[#dfba73] uppercase font-semibold", children: "JANUARY" }),
           (0, C.jsx)("span", { className: "font-['Cinzel'] text-3xl sm:text-4xl text-[#dfba73] font-bold px-3", children: "09" }),
-          (0, C.jsx)("span", { className: "font-['Cinzel'] text-xs sm:text-[13px] tracking-[0.25em] text-[#dfba73] uppercase font-medium", children: "AT 11 AM" })
+          (0, C.jsx)("span", { className: "font-['Cinzel'] text-xs sm:text-sm tracking-[0.3em] text-[#dfba73] uppercase font-semibold", children: "2027" })
         ]
       }),
       (0, C.jsxs)("div", {
-        className: "my-2.5 flex items-center justify-center gap-2",
+        className: "my-2 flex items-center justify-center gap-2",
         children: [
           (0, C.jsx)("span", { className: "h-px flex-1 bg-[#dfba73]/50" }),
           (0, C.jsx)("span", { className: "h-1.5 w-1.5 rotate-45 border border-[#dfba73] bg-[#dfba73]" }),
           (0, C.jsx)("span", { className: "h-px flex-1 bg-[#dfba73]/50" })
         ]
-      }),
-      (0, C.jsx)("p", { className: "font-['Cinzel'] text-xs sm:text-sm tracking-[0.45em] text-[#dfba73] uppercase font-medium", children: "2 0 2 7" })
+      })
     ]
   });
 }
