@@ -755,35 +755,50 @@ function Ve() {
   });
 }
 
-function He({ stage: e, onStartOpen: t }) {
-  let [n, r] = (0, _.useState)(!1),
-    [i, a] = (0, _.useState)(!1);
+function He({ stage: stage, onStartOpen: onStartOpen, onProceed: onProceed }) {
+  let [isRibbonOpen, setIsRibbonOpen] = (0, _.useState)(!1),
+    [isDoorsOpen, setIsDoorsOpen] = (0, _.useState)(!1),
+    timerRef = (0, _.useRef)(null);
 
-  let handleOpen = () => {
-    if (e === "closed" && !n) {
-      r(!0);
-      t();
-      setTimeout(() => { a(!0); }, 380);
+  let handleClick = () => {
+    if (!isRibbonOpen) {
+      setIsRibbonOpen(!0);
+      onStartOpen && onStartOpen();
+      setTimeout(() => {
+        setIsDoorsOpen(!0);
+      }, 350);
+
+      // Auto-proceed to full page after 3.8s
+      timerRef.current = setTimeout(() => {
+        onProceed && onProceed();
+      }, 3800);
+    } else {
+      // User tapped while opening or open -> immediately go to full celebration page!
+      if (timerRef.current) clearTimeout(timerRef.current);
+      onProceed && onProceed();
     }
   };
 
   (0, _.useEffect)(() => {
-    if (e === "closed" && !n) {
-      let timer = setTimeout(() => {
-        handleOpen();
-      }, 7000);
-      return () => clearTimeout(timer);
-    }
-  }, [e, n]);
+    let auto = setTimeout(() => {
+      if (!isRibbonOpen) {
+        handleClick();
+      }
+    }, 6000);
+    return () => {
+      clearTimeout(auto);
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [isRibbonOpen]);
 
   return (0, C.jsx)("div", {
     className: "flex min-h-screen items-center justify-center p-3 sm:p-6 overflow-hidden cursor-pointer select-none",
-    onClick: handleOpen,
+    onClick: handleClick,
     children: (0, C.jsxs)("div", {
       className: "relative flex flex-col items-center",
       children: [
         (0, C.jsxs)("div", {
-          className: "mb-3 sm:mb-4 text-center transition-all duration-700 " + (n ? "opacity-0 -translate-y-4" : "opacity-100 translate-y-0"),
+          className: "mb-3 sm:mb-4 text-center transition-all duration-700 " + (isRibbonOpen ? "opacity-0 -translate-y-4" : "opacity-100 translate-y-0"),
           children: [
             (0, C.jsx)("p", {
               className: "font-['Cinzel_Decorative',_'Cinzel',_serif] text-sm sm:text-base tracking-[0.32em] text-[#f5d58f] uppercase font-bold drop-shadow-[0_2px_10px_rgba(223,186,115,0.45)]",
@@ -799,12 +814,12 @@ function He({ stage: e, onStartOpen: t }) {
           className: "gatefold-perspective gatefold-container relative rounded-sm shadow-[0_35px_100px_-15px_rgba(0,0,0,0.98)] cursor-pointer select-none",
           onClick: e => {
             e.stopPropagation();
-            handleOpen();
+            handleClick();
           },
           children: [
             (0, C.jsxs)("div", {
               className: "emerald-texture absolute inset-0 rounded-sm border border-[#dfba73]/40 p-4 sm:p-5 text-center overflow-hidden flex flex-col justify-between transition-transform duration-1000",
-              style: { transform: i ? "scale(1.02)" : "scale(0.96)" },
+              style: { transform: isDoorsOpen ? "scale(1.02)" : "scale(0.96)" },
               children: [
                 (0, C.jsx)("div", { className: "pointer-events-none absolute inset-2 border border-[#dfba73]/60" }),
                 (0, C.jsx)("div", { className: "pointer-events-none absolute inset-3.5 border border-[#dfba73]/25" }),
@@ -839,13 +854,14 @@ function He({ stage: e, onStartOpen: t }) {
                         (0, C.jsx)("span", { className: "h-px w-8 bg-[#dfba73]/40" })
                       ]
                     }),
-                    (0, C.jsx)("p", { className: "mt-0.5 font-serif text-[10px] sm:text-[11px] text-[#dfba73] italic", children: "St. Thomas Mar Thoma Church, Niranam" })
+                    (0, C.jsx)("p", { className: "mt-0.5 font-serif text-[10px] sm:text-[11px] text-[#dfba73] italic", children: "St. Thomas Mar Thoma Church, Niranam" }),
+                    isDoorsOpen && (0, C.jsx)("p", { className: "mt-1 font-['Cinzel'] text-[9px] tracking-widest text-[#f5d58f] uppercase animate-pulse font-semibold", children: "TAP TO VIEW DETAILS ↓" })
                   ]
                 })
               ]
             }),
             (0, C.jsxs)("div", {
-              className: "gatefold-left-door velvet absolute inset-y-0 left-0 w-1/2 border-y border-l border-[#dfba73]/60 rounded-l-sm shadow-2xl overflow-hidden z-20 " + (i ? "open" : ""),
+              className: "gatefold-left-door velvet absolute inset-y-0 left-0 w-1/2 border-y border-l border-[#dfba73]/60 rounded-l-sm shadow-2xl overflow-hidden z-20 " + (isDoorsOpen ? "open" : ""),
               children: [
                 (0, C.jsx)("div", { className: "pointer-events-none absolute inset-2 border border-[#dfba73]/50" }),
                 (0, C.jsx)("div", { className: "pointer-events-none absolute inset-3.5 border border-[#dfba73]/25" }),
@@ -853,14 +869,14 @@ function He({ stage: e, onStartOpen: t }) {
                 (0, C.jsx)(Oe, { className: "absolute left-1 bottom-1 h-24 w-24 -scale-y-100 text-[#dfba73] pointer-events-none opacity-90" }),
                 (0, C.jsx)("div", {
                   className: "silk-gold-ribbon absolute inset-x-0 top-1/2 -translate-y-1/2 h-10 border-y border-[#dfba73]/70 flex items-center justify-end pr-2 transition-all duration-700 ease-out",
-                  style: { transform: n ? "translateX(-115%)" : "none", opacity: +!n },
+                  style: { transform: isRibbonOpen ? "translateX(-115%)" : "none", opacity: +!isRibbonOpen },
                   children: (0, C.jsx)("span", { className: "h-0.5 w-8 bg-[#8f6a2b]/35 rounded-full" })
                 }),
                 (0, C.jsx)("div", { className: "absolute inset-y-0 right-0 w-3 bg-gradient-to-l from-black/60 to-transparent pointer-events-none" })
               ]
             }),
             (0, C.jsxs)("div", {
-              className: "gatefold-right-door velvet absolute inset-y-0 right-0 w-1/2 border-y border-r border-[#dfba73]/60 rounded-r-sm shadow-2xl overflow-hidden z-20 " + (i ? "open" : ""),
+              className: "gatefold-right-door velvet absolute inset-y-0 right-0 w-1/2 border-y border-r border-[#dfba73]/60 rounded-r-sm shadow-2xl overflow-hidden z-20 " + (isDoorsOpen ? "open" : ""),
               children: [
                 (0, C.jsx)("div", { className: "pointer-events-none absolute inset-2 border border-[#dfba73]/50" }),
                 (0, C.jsx)("div", { className: "pointer-events-none absolute inset-3.5 border border-[#dfba73]/25" }),
@@ -868,7 +884,7 @@ function He({ stage: e, onStartOpen: t }) {
                 (0, C.jsx)(Oe, { className: "absolute right-1 bottom-1 h-24 w-24 -scale-x-100 -scale-y-100 text-[#dfba73] pointer-events-none opacity-90" }),
                 (0, C.jsx)("div", {
                   className: "silk-gold-ribbon absolute inset-x-0 top-1/2 -translate-y-1/2 h-10 border-y border-[#dfba73]/70 flex items-center justify-start pl-2 transition-all duration-700 ease-out",
-                  style: { transform: n ? "translateX(115%)" : "none", opacity: +!n },
+                  style: { transform: isRibbonOpen ? "translateX(115%)" : "none", opacity: +!isRibbonOpen },
                   children: (0, C.jsx)("span", { className: "h-0.5 w-8 bg-[#8f6a2b]/35 rounded-full" })
                 }),
                 (0, C.jsx)("div", { className: "absolute inset-y-0 left-0 w-3 bg-gradient-to-r from-black/60 to-transparent pointer-events-none" })
@@ -876,7 +892,7 @@ function He({ stage: e, onStartOpen: t }) {
             }),
             (0, C.jsx)("div", {
               className: "absolute inset-0 flex items-center justify-center z-30 pointer-events-none transition-all duration-700",
-              style: { opacity: +!n, transform: "scale(" + (n ? 1.3 : 1) + ")" },
+              style: { opacity: +!isRibbonOpen, transform: "scale(" + (isRibbonOpen ? 1.3 : 1) + ")" },
               children: (0, C.jsx)("div", {
                 className: "pulse-gold relative flex items-center justify-center rounded-full",
                 children: (0, C.jsx)("div", {
@@ -900,7 +916,7 @@ function He({ stage: e, onStartOpen: t }) {
           ]
         }),
         (0, C.jsxs)("div", {
-          className: "mt-4 flex flex-col items-center justify-center transition-all duration-700 " + (n ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"),
+          className: "mt-4 flex flex-col items-center justify-center transition-all duration-700 " + (isRibbonOpen ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"),
           children: [
             (0, C.jsxs)("div", {
               className: "flex items-center gap-2 rounded-full border border-[#dfba73]/50 bg-[#041c16]/90 px-5 py-2 shadow-[0_4px_24px_rgba(0,0,0,0.6)] backdrop-blur-sm cursor-pointer hover:border-[#dfba73] hover:scale-105 transition-all duration-300",
@@ -1202,51 +1218,67 @@ function Ge() {
 }
 
 function Ke() {
-  let [e, t] = (0, _.useState)("closed"),
-    [n, r] = (0, _.useState)(!1),
-    [i, a] = (0, _.useState)(!1),
-    o = (0, _.useRef)(null),
-    s = n || e !== "closed";
+  let [stage, setStage] = (0, _.useState)("closed"),
+    [userInteracted, setUserInteracted] = (0, _.useState)(!1),
+    [isPlaying, setIsPlaying] = (0, _.useState)(!1),
+    audioRef = (0, _.useRef)(null),
+    showFloatingPetals = userInteracted || stage !== "closed";
+
+  let playAudio = () => {
+    let audio = audioRef.current;
+    if (audio) {
+      audio.volume = 0;
+      audio.play().then(() => {
+        setIsPlaying(!0);
+        let vol = 0;
+        let fadeTimer = setInterval(() => {
+          vol = Math.min(0.7, vol + 0.035);
+          audio.volume = vol;
+          if (vol >= 0.7) clearInterval(fadeTimer);
+        }, 120);
+      }).catch(() => {});
+    }
+  };
+
+  let openCelebration = () => {
+    setStage("open");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (0, C.jsxs)("div", {
     className: "min-h-screen bg-[#031812] text-[#fdfbf7] selection:bg-[#0b3a2d] selection:text-[#f5d58f] relative",
     children: [
-      (0, C.jsx)("audio", { ref: o, src: w, loop: !0, preload: "auto" }),
-      s && (0, C.jsx)(Pe, { count: 18 }),
-      (0, C.jsx)(Ne, { onTap: () => r(!0) }),
-      e === "open"
+      (0, C.jsx)("audio", { ref: audioRef, src: w, loop: !0, preload: "auto" }),
+      showFloatingPetals && (0, C.jsx)(Pe, { count: 18 }),
+      (0, C.jsx)(Ne, { onTap: () => setUserInteracted(!0) }),
+      stage === "open"
         ? (0, C.jsx)(Ge, {})
         : (0, C.jsx)(He, {
-            stage: e,
+            stage: stage,
             onStartOpen: () => {
-              r(!0);
-              let e = o.current;
-              e &&
-                ((e.volume = 0),
-                e
-                  .play()
-                  .then(() => {
-                    a(!0);
-                    let t = 0,
-                      n = setInterval(() => {
-                        (t = Math.min(0.7, t + 0.035)), (e.volume = t), t >= 0.7 && clearInterval(n);
-                      }, 120);
-                  })
-                  .catch(() => {})),
-                setTimeout(() => {
-                  t("open"), window.scrollTo({ top: 0, behavior: "smooth" });
-                }, 5000);
+              setUserInteracted(!0);
+              playAudio();
+            },
+            onProceed: () => {
+              openCelebration();
             }
           }),
-      e === "open" &&
+      stage === "open" &&
         (0, C.jsx)("button", {
           onClick: () => {
-            let e = o.current;
-            e && (e.paused ? e.play().then(() => a(!0)).catch(() => {}) : (e.pause(), a(!1)));
+            let audio = audioRef.current;
+            if (audio) {
+              if (audio.paused) {
+                audio.play().then(() => setIsPlaying(!0)).catch(() => {});
+              } else {
+                audio.pause();
+                setIsPlaying(!1);
+              }
+            }
           },
-          "aria-label": i ? "Pause music" : "Play music",
+          "aria-label": isPlaying ? "Pause music" : "Play music",
           className: "pulse-gold fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-[#dfba73] bg-[#072920]/95 text-[#dfba73] shadow-2xl backdrop-blur transition hover:scale-105 cursor-pointer",
-          children: i ? (0, C.jsx)(ye, { className: "h-5 w-5" }) : (0, C.jsx)(xe, { className: "ml-0.5 h-5 w-5" })
+          children: isPlaying ? (0, C.jsx)(ye, { className: "h-5 w-5" }) : (0, C.jsx)(xe, { className: "ml-0.5 h-5 w-5" })
         })
     ]
   });
