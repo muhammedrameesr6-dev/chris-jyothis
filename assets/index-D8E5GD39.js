@@ -757,62 +757,88 @@ function Ve() {
 function He({ stage: e, onStartOpen: t }) {
   let [n, r] = (0, _.useState)(!1),
     [i, a] = (0, _.useState)(!1);
+
+  let handleOpen = () => {
+    if (e === "closed" && !n) {
+      r(!0);
+      t();
+      setTimeout(() => { a(!0); }, 380);
+    }
+  };
+
+  (0, _.useEffect)(() => {
+    if (e === "closed" && !n) {
+      let timer = setTimeout(() => {
+        handleOpen();
+      }, 7000);
+      return () => clearTimeout(timer);
+    }
+  }, [e, n]);
+
   return (0, C.jsx)("div", {
-    className: "flex min-h-screen items-center justify-center p-3 sm:p-6 overflow-hidden",
+    className: "flex min-h-screen items-center justify-center p-3 sm:p-6 overflow-hidden cursor-pointer select-none",
+    onClick: handleOpen,
     children: (0, C.jsxs)("div", {
       className: "relative flex flex-col items-center",
       children: [
         (0, C.jsxs)("div", {
-          className: "mb-5 text-center transition-all duration-700 " + (n ? "opacity-0 -translate-y-4" : "opacity-100 translate-y-0"),
+          className: "mb-3 sm:mb-4 text-center transition-all duration-700 " + (n ? "opacity-0 -translate-y-4" : "opacity-100 translate-y-0"),
           children: [
-            (0, C.jsx)("p", { className: "font-['Cinzel'] text-xs sm:text-sm tracking-[0.45em] text-[#dfba73] uppercase font-semibold", children: "WEDDING INVITATION" }),
-            (0, C.jsx)("p", { className: "font-serif text-sm sm:text-base italic text-[#fdfbf7]/75 mt-0.5", children: "Chris & Jyothis" })
+            (0, C.jsx)("p", {
+              className: "font-['Cinzel_Decorative',_'Cinzel',_serif] text-sm sm:text-base tracking-[0.32em] text-[#f5d58f] uppercase font-bold drop-shadow-[0_2px_10px_rgba(223,186,115,0.45)]",
+              children: "WEDDING INVITATION"
+            }),
+            (0, C.jsx)("p", {
+              className: "font-['Great_Vibes',_cursive] text-2xl sm:text-3xl font-bold text-[#dfba73] mt-0.5 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] tracking-wide",
+              children: "Chris & Jyothis"
+            })
           ]
         }),
         (0, C.jsxs)("div", {
-          className: "gatefold-perspective relative w-[90vw] max-w-[420px] sm:max-w-[450px] h-[580px] sm:h-[630px] rounded-sm shadow-[0_35px_100px_-15px_rgba(0,0,0,0.98)] cursor-pointer select-none",
-          onClick: () => {
-            e !== "closed" || n || (r(!0), t(), setTimeout(() => { a(!0); }, 380));
+          className: "gatefold-perspective gatefold-container relative rounded-sm shadow-[0_35px_100px_-15px_rgba(0,0,0,0.98)] cursor-pointer select-none",
+          onClick: e => {
+            e.stopPropagation();
+            handleOpen();
           },
           children: [
             (0, C.jsxs)("div", {
-              className: "emerald-texture absolute inset-0 rounded-sm border border-[#dfba73]/40 p-6 sm:p-7 text-center overflow-hidden flex flex-col justify-between transition-transform duration-1000",
+              className: "emerald-texture absolute inset-0 rounded-sm border border-[#dfba73]/40 p-4 sm:p-5 text-center overflow-hidden flex flex-col justify-between transition-transform duration-1000",
               style: { transform: i ? "scale(1.02)" : "scale(0.96)" },
               children: [
-                (0, C.jsx)("div", { className: "pointer-events-none absolute inset-2.5 border border-[#dfba73]/60" }),
-                (0, C.jsx)("div", { className: "pointer-events-none absolute inset-4 border border-[#dfba73]/25" }),
-                (0, C.jsx)(Oe, { className: "absolute left-1 top-1 h-24 w-24 text-[#dfba73] pointer-events-none" }),
-                (0, C.jsx)(Oe, { className: "absolute right-1 top-1 h-24 w-24 -scale-x-100 text-[#dfba73] pointer-events-none" }),
+                (0, C.jsx)("div", { className: "pointer-events-none absolute inset-2 border border-[#dfba73]/60" }),
+                (0, C.jsx)("div", { className: "pointer-events-none absolute inset-3.5 border border-[#dfba73]/25" }),
+                (0, C.jsx)(Oe, { className: "absolute left-1 top-1 h-20 w-20 text-[#dfba73] pointer-events-none opacity-80" }),
+                (0, C.jsx)(Oe, { className: "absolute right-1 top-1 h-20 w-20 -scale-x-100 text-[#dfba73] pointer-events-none opacity-80" }),
                 (0, C.jsx)("div", {
                   className: "pointer-events-none absolute inset-0 overflow-hidden",
                   children: (0, C.jsx)("div", { className: "animate-gold-beam absolute -top-1/2 left-0 h-[200%] w-24 bg-gradient-to-r from-transparent via-[#f5d58f]/20 to-transparent" })
                 }),
                 (0, C.jsxs)("div", {
-                  className: "relative pt-3 flex flex-col items-center",
+                  className: "relative pt-2 flex flex-col items-center",
                   children: [
-                    (0, C.jsx)(CrossIcon, { className: "h-9 w-6 text-[#dfba73] drop-shadow mb-1" }),
-                    (0, C.jsx)("p", { className: "font-serif text-sm italic text-[#f5d58f]/90", children: "By the Grace of God" }),
-                    (0, C.jsx)("div", { className: "my-1 flex items-center justify-center", children: (0, C.jsx)("span", { className: "h-1 w-1 rotate-45 border border-[#dfba73] bg-[#dfba73]" }) }),
-                    (0, C.jsx)("p", { className: "font-['Cinzel'] text-[11px] tracking-[0.35em] text-[#dfba73] font-semibold uppercase", children: "HOLY MATRIMONY" })
+                    (0, C.jsx)(CrossIcon, { className: "h-7 w-5 text-[#dfba73] drop-shadow mb-0.5" }),
+                    (0, C.jsx)("p", { className: "font-serif text-xs italic text-[#f5d58f]/90", children: "By the Grace of God" }),
+                    (0, C.jsx)("div", { className: "my-0.5 flex items-center justify-center", children: (0, C.jsx)("span", { className: "h-1 w-1 rotate-45 border border-[#dfba73] bg-[#dfba73]" }) }),
+                    (0, C.jsx)("p", { className: "font-['Cinzel'] text-[10px] tracking-[0.3em] text-[#dfba73] font-semibold uppercase", children: "HOLY MATRIMONY" })
                   ]
                 }),
                 (0, C.jsx)("div", {
-                  className: "relative mx-auto my-2 max-w-[210px] sm:max-w-[240px] overflow-hidden rounded-sm border border-[#dfba73]/50 shadow-2xl",
+                  className: "gatefold-card-photo relative mx-auto my-1 overflow-hidden rounded-sm border border-[#dfba73]/50 shadow-2xl",
                   children: (0, C.jsx)("img", { src: Te, alt: "Chris & Jyothis Couple", width: 896, height: 1200, className: "w-full object-cover" })
                 }),
                 (0, C.jsxs)("div", {
-                  className: "relative pb-3",
+                  className: "relative pb-2",
                   children: [
-                    (0, C.jsx)("h2", { className: "font-['Great_Vibes'] text-3xl sm:text-4xl text-[#dfba73] leading-tight drop-shadow", children: "Chris & Jyothis" }),
+                    (0, C.jsx)("h2", { className: "font-['Great_Vibes'] text-2xl sm:text-3xl text-[#dfba73] leading-tight drop-shadow", children: "Chris & Jyothis" }),
                     (0, C.jsxs)("div", {
-                      className: "mt-1 flex items-center justify-center gap-2",
+                      className: "mt-0.5 flex items-center justify-center gap-2",
                       children: [
-                        (0, C.jsx)("span", { className: "h-px w-10 bg-[#dfba73]/40" }),
-                        (0, C.jsx)("span", { className: "font-['Cinzel'] text-[10px] sm:text-[11px] tracking-[0.3em] text-[#fdfbf7]/80 uppercase", children: "09 JANUARY 2027" }),
-                        (0, C.jsx)("span", { className: "h-px w-10 bg-[#dfba73]/40" })
+                        (0, C.jsx)("span", { className: "h-px w-8 bg-[#dfba73]/40" }),
+                        (0, C.jsx)("span", { className: "font-['Cinzel'] text-[9px] sm:text-[10px] tracking-[0.25em] text-[#fdfbf7]/80 uppercase", children: "09 JANUARY 2027" }),
+                        (0, C.jsx)("span", { className: "h-px w-8 bg-[#dfba73]/40" })
                       ]
                     }),
-                    (0, C.jsx)("p", { className: "mt-1 font-serif text-[11px] sm:text-xs text-[#dfba73] italic", children: "St. Thomas Mar Thoma Church, Niranam" })
+                    (0, C.jsx)("p", { className: "mt-0.5 font-serif text-[10px] sm:text-[11px] text-[#dfba73] italic", children: "St. Thomas Mar Thoma Church, Niranam" })
                   ]
                 })
               ]
@@ -820,12 +846,12 @@ function He({ stage: e, onStartOpen: t }) {
             (0, C.jsxs)("div", {
               className: "gatefold-left-door velvet absolute inset-y-0 left-0 w-1/2 border-y border-l border-[#dfba73]/60 rounded-l-sm shadow-2xl overflow-hidden z-20 " + (i ? "open" : ""),
               children: [
-                (0, C.jsx)("div", { className: "pointer-events-none absolute inset-2.5 border border-[#dfba73]/50" }),
-                (0, C.jsx)("div", { className: "pointer-events-none absolute inset-4 border border-[#dfba73]/25" }),
-                (0, C.jsx)(Oe, { className: "absolute left-1 top-1 h-28 w-28 text-[#dfba73] pointer-events-none opacity-90" }),
-                (0, C.jsx)(Oe, { className: "absolute left-1 bottom-1 h-28 w-28 -scale-y-100 text-[#dfba73] pointer-events-none opacity-90" }),
+                (0, C.jsx)("div", { className: "pointer-events-none absolute inset-2 border border-[#dfba73]/50" }),
+                (0, C.jsx)("div", { className: "pointer-events-none absolute inset-3.5 border border-[#dfba73]/25" }),
+                (0, C.jsx)(Oe, { className: "absolute left-1 top-1 h-24 w-24 text-[#dfba73] pointer-events-none opacity-90" }),
+                (0, C.jsx)(Oe, { className: "absolute left-1 bottom-1 h-24 w-24 -scale-y-100 text-[#dfba73] pointer-events-none opacity-90" }),
                 (0, C.jsx)("div", {
-                  className: "silk-gold-ribbon absolute inset-x-0 top-1/2 -translate-y-1/2 h-12 border-y border-[#dfba73]/70 flex items-center justify-end pr-2 transition-all duration-700 ease-out",
+                  className: "silk-gold-ribbon absolute inset-x-0 top-1/2 -translate-y-1/2 h-10 border-y border-[#dfba73]/70 flex items-center justify-end pr-2 transition-all duration-700 ease-out",
                   style: { transform: n ? "translateX(-115%)" : "none", opacity: +!n },
                   children: (0, C.jsx)("span", { className: "h-0.5 w-8 bg-[#8f6a2b]/35 rounded-full" })
                 }),
@@ -835,12 +861,12 @@ function He({ stage: e, onStartOpen: t }) {
             (0, C.jsxs)("div", {
               className: "gatefold-right-door velvet absolute inset-y-0 right-0 w-1/2 border-y border-r border-[#dfba73]/60 rounded-r-sm shadow-2xl overflow-hidden z-20 " + (i ? "open" : ""),
               children: [
-                (0, C.jsx)("div", { className: "pointer-events-none absolute inset-2.5 border border-[#dfba73]/50" }),
-                (0, C.jsx)("div", { className: "pointer-events-none absolute inset-4 border border-[#dfba73]/25" }),
-                (0, C.jsx)(Oe, { className: "absolute right-1 top-1 h-28 w-28 -scale-x-100 text-[#dfba73] pointer-events-none opacity-90" }),
-                (0, C.jsx)(Oe, { className: "absolute right-1 bottom-1 h-28 w-28 -scale-x-100 -scale-y-100 text-[#dfba73] pointer-events-none opacity-90" }),
+                (0, C.jsx)("div", { className: "pointer-events-none absolute inset-2 border border-[#dfba73]/50" }),
+                (0, C.jsx)("div", { className: "pointer-events-none absolute inset-3.5 border border-[#dfba73]/25" }),
+                (0, C.jsx)(Oe, { className: "absolute right-1 top-1 h-24 w-24 -scale-x-100 text-[#dfba73] pointer-events-none opacity-90" }),
+                (0, C.jsx)(Oe, { className: "absolute right-1 bottom-1 h-24 w-24 -scale-x-100 -scale-y-100 text-[#dfba73] pointer-events-none opacity-90" }),
                 (0, C.jsx)("div", {
-                  className: "silk-gold-ribbon absolute inset-x-0 top-1/2 -translate-y-1/2 h-12 border-y border-[#dfba73]/70 flex items-center justify-start pl-2 transition-all duration-700 ease-out",
+                  className: "silk-gold-ribbon absolute inset-x-0 top-1/2 -translate-y-1/2 h-10 border-y border-[#dfba73]/70 flex items-center justify-start pl-2 transition-all duration-700 ease-out",
                   style: { transform: n ? "translateX(115%)" : "none", opacity: +!n },
                   children: (0, C.jsx)("span", { className: "h-0.5 w-8 bg-[#8f6a2b]/35 rounded-full" })
                 }),
@@ -853,19 +879,35 @@ function He({ stage: e, onStartOpen: t }) {
               children: (0, C.jsx)("div", {
                 className: "pulse-gold relative flex items-center justify-center rounded-full",
                 children: (0, C.jsx)("div", {
-                  className: "relative flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-full bg-gradient-to-br from-[#dfba73] via-[#05241c] to-[#041c16] p-1.5 shadow-[0_14px_32px_rgba(0,0,0,0.9)] border-2 border-[#dfba73]",
+                  className: "relative flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full bg-gradient-to-br from-[#dfba73] via-[#05241c] to-[#041c16] p-1.5 shadow-[0_14px_32px_rgba(0,0,0,0.9)] border-2 border-[#dfba73]",
                   children: (0, C.jsxs)("div", {
                     className: "relative flex h-full w-full items-center justify-center rounded-full bg-[#05261e] border border-[#dfba73]/70 shadow-inner",
                     children: [
                       (0, C.jsx)("div", { className: "absolute inset-1.5 rounded-full border border-dashed border-[#dfba73]/40" }),
-                      (0, C.jsx)("div", {
+                      (0, C.jsxs)("div", {
                         className: "text-center select-none",
-                        children: (0, C.jsx)("p", { className: "font-['Cinzel'] text-sm sm:text-base font-bold tracking-widest text-[#dfba73] drop-shadow-md", children: "C ♡ J" })
+                        children: [
+                          (0, C.jsx)("p", { className: "font-['Cinzel'] text-xs sm:text-sm font-bold tracking-widest text-[#dfba73] drop-shadow-md", children: "C ♡ J" }),
+                          (0, C.jsx)("p", { className: "font-['Cinzel'] text-[7px] sm:text-[8px] tracking-[0.2em] text-[#f5d58f]/90 uppercase font-semibold mt-0.5", children: "OPEN" })
+                        ]
                       })
                     ]
                   })
                 })
               })
+            })
+          ]
+        }),
+        (0, C.jsxs)("div", {
+          className: "mt-4 flex flex-col items-center justify-center transition-all duration-700 " + (n ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"),
+          children: [
+            (0, C.jsxs)("div", {
+              className: "flex items-center gap-2 rounded-full border border-[#dfba73]/50 bg-[#041c16]/90 px-5 py-2 shadow-[0_4px_24px_rgba(0,0,0,0.6)] backdrop-blur-sm cursor-pointer hover:border-[#dfba73] hover:scale-105 transition-all duration-300",
+              children: [
+                (0, C.jsx)("span", { className: "h-2 w-2 rounded-full bg-[#dfba73] animate-ping" }),
+                (0, C.jsx)("span", { className: "font-['Cinzel'] text-xs tracking-[0.25em] text-[#f5d58f] font-bold uppercase", children: "TAP ANYWHERE TO OPEN" }),
+                (0, C.jsx)("span", { className: "h-2 w-2 rounded-full bg-[#dfba73] animate-ping" })
+              ]
             })
           ]
         })
@@ -1165,7 +1207,7 @@ function Ke() {
                   .catch(() => {})),
                 setTimeout(() => {
                   t("open"), window.scrollTo({ top: 0, behavior: "smooth" });
-                }, 1850);
+                }, 5000);
             }
           }),
       e === "open" &&
