@@ -938,9 +938,18 @@ function Ve() {
 function He({ stage: stage, onStartOpen: onStartOpen, onProceed: onProceed }) {
   let [isRibbonOpen, setIsRibbonOpen] = (0, _.useState)(!1),
     [isDoorsOpen, setIsDoorsOpen] = (0, _.useState)(!1),
-    timerRef = (0, _.useRef)(null);
+    timerRef = (0, _.useRef)(null),
+    hasProceededRef = (0, _.useRef)(!1),
+    touchStartYRef = (0, _.useRef)(null);
 
-  let handleClick = () => {
+  let proceed = () => {
+    if (hasProceededRef.current) return;
+    hasProceededRef.current = !0;
+    if (timerRef.current) clearTimeout(timerRef.current);
+    onProceed && onProceed();
+  };
+
+  let openDoors = () => {
     if (!isRibbonOpen) {
       setIsRibbonOpen(!0);
       onStartOpen && onStartOpen();
@@ -950,24 +959,80 @@ function He({ stage: stage, onStartOpen: onStartOpen, onProceed: onProceed }) {
 
       // Auto-proceed to full page after 3.8s
       timerRef.current = setTimeout(() => {
-        onProceed && onProceed();
+        proceed();
       }, 3800);
+    }
+  };
+
+  let handleClick = () => {
+    if (!isRibbonOpen) {
+      openDoors();
     } else {
       // User tapped while opening or open -> immediately go to full celebration page!
-      if (timerRef.current) clearTimeout(timerRef.current);
-      onProceed && onProceed();
+      proceed();
+    }
+  };
+
+  let handleScrollAction = () => {
+    if (!isRibbonOpen) {
+      openDoors();
+    } else {
+      proceed();
     }
   };
 
   (0, _.useEffect)(() => {
+    let handleWheel = ev => {
+      if (ev.deltaY > 6) {
+        handleScrollAction();
+      }
+    };
+
+    let handleTouchStart = ev => {
+      if (ev.touches && ev.touches.length === 1) {
+        touchStartYRef.current = ev.touches[0].clientY;
+      }
+    };
+
+    let handleTouchMove = ev => {
+      if (touchStartYRef.current !== null && ev.touches && ev.touches.length === 1) {
+        let diff = touchStartYRef.current - ev.touches[0].clientY;
+        if (diff > 25) {
+          handleScrollAction();
+        }
+      }
+    };
+
+    let handleTouchEnd = () => {
+      touchStartYRef.current = null;
+    };
+
+    let handleKeyDown = ev => {
+      if (ev.key === "ArrowDown" || ev.key === "PageDown" || ev.key === " " || ev.key === "Enter") {
+        handleScrollAction();
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: !0 });
+    window.addEventListener("touchstart", handleTouchStart, { passive: !0 });
+    window.addEventListener("touchmove", handleTouchMove, { passive: !0 });
+    window.addEventListener("touchend", handleTouchEnd, { passive: !0 });
+    window.addEventListener("keydown", handleKeyDown);
+
     let auto = setTimeout(() => {
       if (!isRibbonOpen) {
-        handleClick();
+        openDoors();
       }
     }, 6000);
+
     return () => {
       clearTimeout(auto);
       if (timerRef.current) clearTimeout(timerRef.current);
+      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isRibbonOpen]);
 
@@ -1035,7 +1100,7 @@ function He({ stage: stage, onStartOpen: onStartOpen, onProceed: onProceed }) {
                       ]
                     }),
                     (0, C.jsx)("p", { className: "mt-0.5 font-serif text-[10px] sm:text-[11px] text-[#dfba73] italic", children: "St. Thomas Mar Thoma Church, Niranam" }),
-                    isDoorsOpen && (0, C.jsx)("p", { className: "mt-1 font-['Cinzel'] text-[9px] tracking-widest text-[#f5d58f] uppercase animate-pulse font-semibold", children: "TAP TO VIEW DETAILS ↓" })
+                    isDoorsOpen && (0, C.jsx)("p", { className: "mt-1 font-['Cinzel'] text-[9px] tracking-widest text-[#f5d58f] uppercase animate-pulse font-semibold", children: "SCROLL OR TAP TO VIEW DETAILS ↓" })
                   ]
                 })
               ]
