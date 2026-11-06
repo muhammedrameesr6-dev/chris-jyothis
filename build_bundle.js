@@ -625,7 +625,18 @@ function Be() {
     [n, r] = (0, _.useState)(""),
     [i, a] = (0, _.useState)(""),
     [o, s] = (0, _.useState)(!1),
-    [c, l] = (0, _.useState)(null);
+    [c, l] = (0, _.useState)(null),
+    [isUnlocked, setIsUnlocked] = (0, _.useState)(() => {
+      try {
+        return sessionStorage.getItem("chris_jyothis_wishes_unlocked") === "true";
+      } catch {
+        return !1;
+      }
+    }),
+    [showPinPrompt, setShowPinPrompt] = (0, _.useState)(!1),
+    [enteredPin, setEnteredPin] = (0, _.useState)(""),
+    [pinError, setPinError] = (0, _.useState)(""),
+    [submittedSuccess, setSubmittedSuccess] = (0, _.useState)(!1);
 
   (0, _.useEffect)(() => {
     let e = localStorage.getItem("chris_jyothis_wishes");
@@ -649,7 +660,8 @@ function Be() {
         localStorage.setItem("chris_jyothis_wishes", JSON.stringify(u)),
         r(""),
         a(""),
-        s(!1);
+        s(!1),
+        setSubmittedSuccess(!0);
     },
     d = n => {
       if (confirm("Delete this wish?")) {
@@ -693,25 +705,181 @@ function Be() {
           })
         ]
       }),
-      (0, C.jsx)("div", {
-        className: "mt-6 space-y-3.5",
-        children: e.map(e =>
-          (0, C.jsxs)(
-            "div",
-            {
-              className: "emerald-card rounded-sm p-4 text-[#fdfbf7] shadow-lg text-left",
+      submittedSuccess && (0, C.jsxs)("div", {
+        className: "mt-4 rounded-sm border border-[#dfba73]/50 bg-[#072920]/95 p-4 text-center shadow-lg transition-all",
+        children: [
+          (0, C.jsx)("p", {
+            className: "font-serif text-base text-[#f5d58f] italic",
+            children: "✨ Thank you! Your warm wishes and prayers have been sent to Chris & Jyothis."
+          }),
+          (0, C.jsx)("button", {
+            type: "button",
+            onClick: () => setSubmittedSuccess(!1),
+            className: "mt-2 font-['Cinzel'] text-[10px] tracking-wider text-[#dfba73]/80 hover:text-[#dfba73] underline cursor-pointer",
+            children: "Dismiss"
+          })
+        ]
+      }),
+      !isUnlocked ? (
+        (0, C.jsx)("div", {
+          className: "mt-5 text-center",
+          children: !showPinPrompt ? (
+            (0, C.jsxs)("button", {
+              type: "button",
+              onClick: () => { setShowPinPrompt(!0); setPinError(""); },
+              className: "inline-flex items-center gap-1.5 rounded-full border border-[#dfba73]/30 bg-[#041c16]/80 px-4 py-2 font-['Cinzel'] text-[10px] sm:text-[11px] tracking-[0.2em] text-[#dfba73]/80 hover:text-[#f5d58f] hover:border-[#dfba73] transition-colors cursor-pointer shadow-sm",
               children: [
-                (0, C.jsx)("p", { className: "whitespace-pre-wrap text-base sm:text-lg leading-relaxed font-serif text-[#fdfbf7]/90", children: e.message }),
-                (0, C.jsx)("div", {
-                  className: "mt-3 border-t border-[#dfba73]/20 pt-2",
-                  children: (0, C.jsxs)("span", { className: "font-['Cinzel'] text-xs tracking-[0.2em] text-[#dfba73] font-medium", children: ["— ", e.guest_name] })
+                (0, C.jsx)("span", { children: "🔒" }),
+                (0, C.jsx)("span", { children: "VIEW WISHES (OWNER ACCESS)" })
+              ]
+            })
+          ) : (
+            (0, C.jsxs)("div", {
+              className: "mx-auto max-w-sm rounded-sm border border-[#dfba73]/50 bg-[#041c16]/95 p-4 sm:p-5 shadow-2xl space-y-3 text-left",
+              children: [
+                (0, C.jsxs)("div", {
+                  className: "flex items-center justify-between pb-2 border-b border-[#dfba73]/25",
+                  children: [
+                    (0, C.jsxs)("span", {
+                      className: "font-['Cinzel'] text-xs uppercase tracking-widest text-[#dfba73] font-semibold flex items-center gap-1.5",
+                      children: [
+                        (0, C.jsx)("span", { children: "🔐" }),
+                        "Owner Verification"
+                      ]
+                    }),
+                    (0, C.jsx)("button", {
+                      type: "button",
+                      onClick: () => { setShowPinPrompt(!1); setEnteredPin(""); setPinError(""); },
+                      className: "text-[#dfba73]/60 hover:text-[#fdfbf7] text-sm px-1.5 cursor-pointer",
+                      children: "✕"
+                    })
+                  ]
+                }),
+                (0, C.jsx)("p", {
+                  className: "font-serif text-xs text-[#fdfbf7]/75 italic",
+                  children: "Enter passcode to view all guest wishes & prayers."
+                }),
+                (0, C.jsxs)("form", {
+                  onSubmit: ev => {
+                    ev.preventDefault();
+                    if (enteredPin.trim() === "2222") {
+                      setIsUnlocked(!0);
+                      setShowPinPrompt(!1);
+                      setPinError("");
+                      try { sessionStorage.setItem("chris_jyothis_wishes_unlocked", "true"); } catch {}
+                    } else {
+                      setPinError("Incorrect password. Please try again.");
+                    }
+                  },
+                  className: "space-y-3",
+                  children: [
+                    (0, C.jsx)("input", {
+                      type: "password",
+                      inputMode: "numeric",
+                      maxLength: 8,
+                      value: enteredPin,
+                      onChange: ev => { setEnteredPin(ev.target.value); setPinError(""); },
+                      placeholder: "Passcode (2222)",
+                      autoFocus: !0,
+                      className: "w-full text-center tracking-[0.3em] font-['Cinzel'] text-base sm:text-lg py-2 border border-[#dfba73]/40 bg-[#072920] text-[#f5d58f] rounded-sm focus:border-[#dfba73] focus:outline-none placeholder:text-[#fdfbf7]/30 placeholder:tracking-normal placeholder:text-xs"
+                    }),
+                    pinError && (0, C.jsx)("p", {
+                      className: "text-xs text-red-300 font-serif text-center",
+                      children: pinError
+                    }),
+                    (0, C.jsxs)("div", {
+                      className: "flex gap-2 pt-1",
+                      children: [
+                        (0, C.jsx)("button", {
+                          type: "submit",
+                          className: "flex-1 rounded-full border border-[#dfba73] bg-[#0b3a2d] py-2 font-['Cinzel'] text-xs tracking-widest text-[#fdfbf7] hover:bg-[#072920] transition cursor-pointer font-semibold",
+                          children: "UNLOCK"
+                        }),
+                        (0, C.jsx)("button", {
+                          type: "button",
+                          onClick: () => { setShowPinPrompt(!1); setEnteredPin(""); setPinError(""); },
+                          className: "px-4 rounded-full border border-[#dfba73]/40 bg-transparent py-2 font-['Cinzel'] text-xs tracking-widest text-[#dfba73] hover:text-[#fdfbf7] transition cursor-pointer",
+                          children: "CANCEL"
+                        })
+                      ]
+                    })
+                  ]
                 })
               ]
-            },
-            e.id
+            })
           )
-        )
-      })
+        })
+      ) : (
+        (0, C.jsxs)("div", {
+          className: "mt-8 space-y-4",
+          children: [
+            (0, C.jsxs)("div", {
+              className: "flex items-center justify-between pb-2 border-b border-[#dfba73]/30 px-1",
+              children: [
+                (0, C.jsxs)("div", {
+                  className: "flex items-center gap-1.5",
+                  children: [
+                    (0, C.jsx)("span", { children: "✨" }),
+                    (0, C.jsxs)("span", {
+                      className: "font-['Cinzel'] text-xs uppercase tracking-widest text-[#f5d58f] font-semibold",
+                      children: ["ALL WISHES (", e.length, ")"]
+                    })
+                  ]
+                }),
+                (0, C.jsxs)("button", {
+                  type: "button",
+                  onClick: () => {
+                    setIsUnlocked(!1);
+                    try { sessionStorage.removeItem("chris_jyothis_wishes_unlocked"); } catch {}
+                  },
+                  className: "inline-flex items-center gap-1 font-['Cinzel'] text-[10px] tracking-wider text-[#dfba73]/80 hover:text-[#dfba73] border border-[#dfba73]/30 rounded px-2.5 py-1 bg-[#041c16] hover:bg-[#072920] cursor-pointer transition-colors",
+                  children: [
+                    (0, C.jsx)("span", { children: "🔒" }),
+                    (0, C.jsx)("span", { children: "LOCK" })
+                  ]
+                })
+              ]
+            }),
+            e.length === 0 ? (
+              (0, C.jsx)("p", {
+                className: "text-center font-serif text-sm text-[#dfba73]/70 py-6 italic",
+                children: "No wishes submitted yet."
+              })
+            ) : (
+              e.map(w =>
+                (0, C.jsxs)(
+                  "div",
+                  {
+                    className: "emerald-card relative rounded-sm p-4 text-[#fdfbf7] shadow-lg text-left",
+                    children: [
+                      (0, C.jsx)("p", {
+                        className: "whitespace-pre-wrap text-base sm:text-lg leading-relaxed font-serif text-[#fdfbf7]/90",
+                        children: w.message
+                      }),
+                      (0, C.jsxs)("div", {
+                        className: "mt-3 flex items-center justify-between border-t border-[#dfba73]/20 pt-2",
+                        children: [
+                          (0, C.jsxs)("span", {
+                            className: "font-['Cinzel'] text-xs tracking-[0.2em] text-[#dfba73] font-medium",
+                            children: ["— ", w.guest_name]
+                          }),
+                          (0, C.jsx)("button", {
+                            type: "button",
+                            onClick: () => d(w.id),
+                            className: "text-[10px] tracking-wider font-['Cinzel'] text-red-300/70 hover:text-red-300 uppercase px-2 py-0.5 rounded cursor-pointer",
+                            children: "DELETE"
+                          })
+                        ]
+                      })
+                    ]
+                  },
+                  w.id
+                )
+              )
+            )
+          ]
+        })
+      )
     ]
   });
 }
@@ -729,11 +897,30 @@ function Ve() {
         ]
       }),
       (0, C.jsxs)("div", {
-        className: "flex items-center justify-between px-3 py-1",
+        className: "py-1",
+        style: { display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center" },
         children: [
-          (0, C.jsx)("span", { className: "font-['Cinzel'] text-xs sm:text-sm tracking-[0.3em] text-[#dfba73] uppercase font-semibold", children: "JANUARY" }),
-          (0, C.jsx)("span", { className: "font-['Cinzel'] text-3xl sm:text-4xl text-[#dfba73] font-bold px-3", children: "09" }),
-          (0, C.jsx)("span", { className: "font-['Cinzel'] text-xs sm:text-sm tracking-[0.3em] text-[#dfba73] uppercase font-semibold", children: "2027" })
+          (0, C.jsx)("div", {
+            style: { textAlign: "right", paddingRight: "14px" },
+            children: (0, C.jsx)("span", {
+              className: "font-['Cinzel'] text-xs sm:text-sm tracking-[0.25em] text-[#dfba73] uppercase font-semibold",
+              children: "JANUARY"
+            })
+          }),
+          (0, C.jsx)("div", {
+            style: { textAlign: "center", display: "flex", justifyContent: "center", alignItems: "center" },
+            children: (0, C.jsx)("span", {
+              className: "font-['Cinzel'] text-3xl sm:text-4xl text-[#dfba73] font-bold leading-none inline-block",
+              children: "09"
+            })
+          }),
+          (0, C.jsx)("div", {
+            style: { textAlign: "left", paddingLeft: "14px" },
+            children: (0, C.jsx)("span", {
+              className: "font-['Cinzel'] text-xs sm:text-sm tracking-[0.25em] text-[#dfba73] uppercase font-semibold",
+              children: "2027"
+            })
+          })
         ]
       }),
       (0, C.jsxs)("div", {
@@ -974,7 +1161,7 @@ function Ge() {
           }),
           (0, C.jsxs)("p", {
             className: "mt-6 text-base sm:text-lg text-[#fdfbf7]/90 max-w-sm mx-auto font-serif leading-relaxed",
-            children: ["With joyful hearts and the blessings of our parents,", (0, C.jsx)("br", {}), "we warmly invite you to celebrate", (0, C.jsx)("br", {}), "the holy matrimony of"]
+            children: ["With joyful hearts surrounded by the love of our families,", (0, C.jsx)("br", {}), "we warmly invite you to celebrate", (0, C.jsx)("br", {}), "the holy matrimony of"]
           }),
           (0, C.jsxs)("div", {
             className: "mt-8 space-y-1",
