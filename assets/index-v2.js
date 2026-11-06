@@ -444,7 +444,7 @@ function Le() {
             className: "card-flip-inner min-h-[380px] w-full " + (e ? "flipped" : ""),
             children: [
               (0, C.jsxs)("div", {
-                className: "card-face-front absolute inset-0 rounded-sm border border-[#dfba73]/40 bg-[#260710]/90 p-6 sm:p-8 flex flex-col justify-between items-center shadow-2xl overflow-hidden",
+                className: "card-face-front absolute inset-0 rounded-sm border border-[#dfba73]/40 bg-[#041c16]/90 p-6 sm:p-8 flex flex-col justify-between items-center shadow-2xl overflow-hidden",
                 children: [
                   (0, C.jsx)("div", { className: "pointer-events-none absolute inset-2.5 border border-[#dfba73]/50" }),
                   (0, C.jsx)("div", { className: "pointer-events-none absolute inset-4 border border-[#dfba73]/25" }),
@@ -467,9 +467,9 @@ function Le() {
                   (0, C.jsx)("div", {
                     className: "pulse-gold relative flex items-center justify-center my-auto",
                     children: (0, C.jsx)("div", {
-                      className: "relative flex h-32 w-32 sm:h-36 sm:w-36 items-center justify-center rounded-full bg-gradient-to-br from-[#dfba73] via-[#340916] to-[#1a0409] p-2 shadow-2xl border-2 border-[#dfba73]",
+                      className: "relative flex h-32 w-32 sm:h-36 sm:w-36 items-center justify-center rounded-full bg-gradient-to-br from-[#dfba73] via-[#05261e] to-[#031812] p-2 shadow-2xl border-2 border-[#dfba73]",
                       children: (0, C.jsxs)("div", {
-                        className: "flex h-full w-full flex-col items-center justify-center rounded-full bg-[#340916] border border-[#dfba73]/70 p-2 text-center shadow-inner",
+                        className: "flex h-full w-full flex-col items-center justify-center rounded-full bg-[#05261e] border border-[#dfba73]/70 p-2 text-center shadow-inner",
                         children: [
                           (0, C.jsx)("span", { className: "font-['Cinzel'] text-[10px] tracking-widest text-[#f5d58f] uppercase", children: "✦ JAN ✦" }),
                           (0, C.jsx)("span", { className: "font-['Cinzel'] text-3xl sm:text-4xl font-bold text-[#dfba73] leading-none my-0.5 drop-shadow", children: "09" }),
@@ -492,13 +492,13 @@ function Le() {
                 ]
               }),
               (0, C.jsxs)("div", {
-                className: "card-face-back absolute inset-0 rounded-sm border border-[#dfba73]/45 bg-[#260710]/95 p-5 sm:p-6 flex flex-col justify-between items-center shadow-2xl overflow-hidden",
+                className: "card-face-back absolute inset-0 rounded-sm border border-[#dfba73]/45 bg-[#041c16]/95 p-5 sm:p-6 flex flex-col justify-between items-center shadow-2xl overflow-hidden",
                 children: [
                   (0, C.jsx)("div", { className: "pointer-events-none absolute inset-2 border border-[#dfba73]/40" }),
                   (0, C.jsx)("div", {
                     className: "w-full",
                     children: (0, C.jsx)("div", {
-                      className: "grid grid-cols-4 divide-x divide-[#dfba73]/30 rounded-sm border border-[#dfba73]/40 bg-[#340916]/80 py-3 shadow-lg",
+                      className: "grid grid-cols-4 divide-x divide-[#dfba73]/30 rounded-sm border border-[#dfba73]/40 bg-[#05261e]/80 py-3 shadow-lg",
                       children: Fe.map(e =>
                         (0, C.jsxs)(
                           "div",
@@ -544,7 +544,7 @@ function Le() {
                                   className:
                                     "h-6 sm:h-7 flex items-center justify-center rounded-full transition-all " +
                                     (n === 9
-                                      ? "pulse-gold bg-[#dfba73] text-[#260710] font-bold font-['Cinzel'] shadow-md scale-110 z-10"
+                                      ? "pulse-gold bg-[#dfba73] text-[#041c16] font-bold font-['Cinzel'] shadow-md scale-110 z-10"
                                       : "hover:bg-[#dfba73]/10"),
                                   children: n
                                 },
@@ -562,7 +562,7 @@ function Le() {
                         target: "_blank",
                         rel: "noopener noreferrer",
                         onClick: e => e.stopPropagation(),
-                        className: "inline-flex items-center gap-1.5 rounded-full border border-[#dfba73] bg-[#5d1128] px-5 py-2 font-['Cinzel'] text-[11px] tracking-widest text-[#f5d58f] transition hover:bg-[#440d1e] shadow-md cursor-pointer",
+                        className: "inline-flex items-center gap-1.5 rounded-full border border-[#dfba73] bg-[#0b3a2d] px-5 py-2 font-['Cinzel'] text-[11px] tracking-widest text-[#f5d58f] transition hover:bg-[#072920] shadow-md cursor-pointer",
                         children: [(0, C.jsx)(de, { className: "h-3.5 w-3.5 text-[#dfba73]" }), "ADD TO CALENDAR"]
                       }),
                       (0, C.jsx)("span", { className: "text-[10px] font-['Cinzel'] tracking-widest text-[#dfba73]/60 uppercase", children: "✦ Click to Flip ✦" })
@@ -601,7 +601,7 @@ function Re() {
         (0, C.jsxs)(
           "div",
           {
-            className: "rounded-sm border border-[#dfba73]/40 bg-[#340916]/80 py-3.5 sm:py-4 text-center shadow-lg",
+            className: "rounded-sm border border-[#dfba73]/40 bg-[#05241c]/80 py-3.5 sm:py-4 text-center shadow-lg",
             children: [
               (0, C.jsx)("div", { className: "font-['Cinzel'] text-xl sm:text-2xl text-[#fdfbf7] font-bold", children: e === null ? "--" : String(e[t]).padStart(2, "0") }),
               (0, C.jsx)("div", { className: "mt-1 text-[10px] uppercase tracking-[0.2em] text-[#dfba73]", children: t })
@@ -682,7 +682,7 @@ function Be() {
     children: [
       (0, C.jsxs)("form", {
         onSubmit: u,
-        className: "space-y-3.5 rounded-sm border border-[#dfba73]/40 bg-[#260710]/80 p-5 shadow-2xl",
+        className: "space-y-3.5 rounded-sm border border-[#dfba73]/40 bg-[#041c16]/80 p-5 shadow-2xl",
         children: [
           (0, C.jsx)("input", {
             value: n,
@@ -706,14 +706,14 @@ function Be() {
             children: (0, C.jsx)("button", {
               type: "submit",
               disabled: o,
-              className: "w-full rounded-full border border-[#dfba73] bg-[#5d1128] px-5 py-3 font-['Cinzel'] text-xs tracking-[0.3em] text-[#fdfbf7] transition hover:bg-[#440d1e] disabled:opacity-60 shadow-md cursor-pointer",
+              className: "w-full rounded-full border border-[#dfba73] bg-[#0b3a2d] px-5 py-3 font-['Cinzel'] text-xs tracking-[0.3em] text-[#fdfbf7] transition hover:bg-[#072920] disabled:opacity-60 shadow-md cursor-pointer",
               children: "SEND WISH"
             })
           })
         ]
       }),
       submittedSuccess && (0, C.jsxs)("div", {
-        className: "mt-4 rounded-sm border border-[#dfba73]/50 bg-[#440d1e]/95 p-4 text-center shadow-lg transition-all",
+        className: "mt-4 rounded-sm border border-[#dfba73]/50 bg-[#072920]/95 p-4 text-center shadow-lg transition-all",
         children: [
           (0, C.jsx)("p", {
             className: "font-serif text-base text-[#f5d58f] italic",
@@ -734,7 +734,7 @@ function Be() {
             (0, C.jsxs)("button", {
               type: "button",
               onClick: () => { setShowPinPrompt(!0); setPinError(""); },
-              className: "inline-flex items-center gap-1.5 rounded-full border border-[#dfba73]/30 bg-[#260710]/80 px-4 py-2 font-['Cinzel'] text-[10px] sm:text-[11px] tracking-[0.2em] text-[#dfba73]/80 hover:text-[#f5d58f] hover:border-[#dfba73] transition-colors cursor-pointer shadow-sm",
+              className: "inline-flex items-center gap-1.5 rounded-full border border-[#dfba73]/30 bg-[#041c16]/80 px-4 py-2 font-['Cinzel'] text-[10px] sm:text-[11px] tracking-[0.2em] text-[#dfba73]/80 hover:text-[#f5d58f] hover:border-[#dfba73] transition-colors cursor-pointer shadow-sm",
               children: [
                 (0, C.jsx)("span", { children: "🔒" }),
                 (0, C.jsx)("span", { children: "VIEW WISHES (OWNER ACCESS)" })
@@ -742,7 +742,7 @@ function Be() {
             })
           ) : (
             (0, C.jsxs)("div", {
-              className: "mx-auto max-w-sm rounded-sm border border-[#dfba73]/50 bg-[#260710]/95 p-4 sm:p-5 shadow-2xl space-y-3 text-left",
+              className: "mx-auto max-w-sm rounded-sm border border-[#dfba73]/50 bg-[#041c16]/95 p-4 sm:p-5 shadow-2xl space-y-3 text-left",
               children: [
                 (0, C.jsxs)("div", {
                   className: "flex items-center justify-between pb-2 border-b border-[#dfba73]/25",
@@ -788,7 +788,7 @@ function Be() {
                       onChange: ev => { setEnteredPin(ev.target.value); setPinError(""); },
                       placeholder: "Enter Passcode",
                       autoFocus: !0,
-                      className: "w-full text-center tracking-[0.3em] font-['Cinzel'] text-base sm:text-lg py-2 border border-[#dfba73]/40 bg-[#440d1e] text-[#f5d58f] rounded-sm focus:border-[#dfba73] focus:outline-none placeholder:text-[#fdfbf7]/30 placeholder:tracking-normal placeholder:text-xs"
+                      className: "w-full text-center tracking-[0.3em] font-['Cinzel'] text-base sm:text-lg py-2 border border-[#dfba73]/40 bg-[#072920] text-[#f5d58f] rounded-sm focus:border-[#dfba73] focus:outline-none placeholder:text-[#fdfbf7]/30 placeholder:tracking-normal placeholder:text-xs"
                     }),
                     pinError && (0, C.jsx)("p", {
                       className: "text-xs text-red-300 font-serif text-center",
@@ -799,7 +799,7 @@ function Be() {
                       children: [
                         (0, C.jsx)("button", {
                           type: "submit",
-                          className: "flex-1 rounded-full border border-[#dfba73] bg-[#5d1128] py-2 font-['Cinzel'] text-xs tracking-widest text-[#fdfbf7] hover:bg-[#440d1e] transition cursor-pointer font-semibold",
+                          className: "flex-1 rounded-full border border-[#dfba73] bg-[#0b3a2d] py-2 font-['Cinzel'] text-xs tracking-widest text-[#fdfbf7] hover:bg-[#072920] transition cursor-pointer font-semibold",
                           children: "UNLOCK"
                         }),
                         (0, C.jsx)("button", {
@@ -839,7 +839,7 @@ function Be() {
                     setIsUnlocked(!1);
                     try { sessionStorage.removeItem("chris_jyothis_wishes_unlocked"); } catch {}
                   },
-                  className: "inline-flex items-center gap-1 font-['Cinzel'] text-[10px] tracking-wider text-[#dfba73]/80 hover:text-[#dfba73] border border-[#dfba73]/30 rounded px-2.5 py-1 bg-[#260710] hover:bg-[#440d1e] cursor-pointer transition-colors",
+                  className: "inline-flex items-center gap-1 font-['Cinzel'] text-[10px] tracking-wider text-[#dfba73]/80 hover:text-[#dfba73] border border-[#dfba73]/30 rounded px-2.5 py-1 bg-[#041c16] hover:bg-[#072920] cursor-pointer transition-colors",
                   children: [
                     (0, C.jsx)("span", { children: "🔒" }),
                     (0, C.jsx)("span", { children: "LOCK" })
@@ -1148,9 +1148,9 @@ function He({ stage: stage, onStartOpen: onStartOpen, onProceed: onProceed }) {
               children: (0, C.jsx)("div", {
                 className: "pulse-gold relative flex items-center justify-center rounded-full",
                 children: (0, C.jsx)("div", {
-                  className: "relative flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full bg-gradient-to-br from-[#dfba73] via-[#340916] to-[#260710] p-1.5 shadow-[0_14px_32px_rgba(0,0,0,0.9)] border-2 border-[#dfba73]",
+                  className: "relative flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full bg-gradient-to-br from-[#dfba73] via-[#05241c] to-[#041c16] p-1.5 shadow-[0_14px_32px_rgba(0,0,0,0.9)] border-2 border-[#dfba73]",
                   children: (0, C.jsxs)("div", {
-                    className: "relative flex h-full w-full items-center justify-center rounded-full bg-[#340916] border border-[#dfba73]/70 shadow-inner",
+                    className: "relative flex h-full w-full items-center justify-center rounded-full bg-[#05261e] border border-[#dfba73]/70 shadow-inner",
                     children: [
                       (0, C.jsx)("div", { className: "absolute inset-1.5 rounded-full border border-dashed border-[#dfba73]/40" }),
                       (0, C.jsxs)("div", {
@@ -1171,7 +1171,7 @@ function He({ stage: stage, onStartOpen: onStartOpen, onProceed: onProceed }) {
           className: "mt-4 flex flex-col items-center justify-center transition-all duration-700 " + (isRibbonOpen ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"),
           children: [
             (0, C.jsxs)("div", {
-              className: "flex items-center gap-2 rounded-full border border-[#dfba73]/50 bg-[#260710]/90 px-5 py-2 shadow-[0_4px_24px_rgba(0,0,0,0.6)] backdrop-blur-sm cursor-pointer hover:border-[#dfba73] hover:scale-105 transition-all duration-300",
+              className: "flex items-center gap-2 rounded-full border border-[#dfba73]/50 bg-[#041c16]/90 px-5 py-2 shadow-[0_4px_24px_rgba(0,0,0,0.6)] backdrop-blur-sm cursor-pointer hover:border-[#dfba73] hover:scale-105 transition-all duration-300",
               children: [
                 (0, C.jsx)("span", { className: "h-2 w-2 rounded-full bg-[#dfba73] animate-ping" }),
                 (0, C.jsx)("span", { className: "font-['Cinzel'] text-xs tracking-[0.25em] text-[#f5d58f] font-bold uppercase", children: "TAP ANYWHERE TO OPEN" }),
@@ -1267,7 +1267,7 @@ function Ge() {
         children: [
           (0, C.jsx)(Ue, { children: "THE CELEBRATION" }),
           (0, C.jsxs)("div", {
-            className: "emerald-card mx-auto max-w-md rounded-sm p-6 sm:p-8 text-[#fdfbf7] shadow-2xl bg-[#260710]/75 border border-[#dfba73]/40 space-y-6 text-center",
+            className: "emerald-card mx-auto max-w-md rounded-sm p-6 sm:p-8 text-[#fdfbf7] shadow-2xl bg-[#041c16]/75 border border-[#dfba73]/40 space-y-6 text-center",
             children: [
               (0, C.jsxs)("div", {
                 className: "space-y-2",
@@ -1323,7 +1323,7 @@ function Ge() {
                 href: De,
                 target: "_blank",
                 rel: "noopener noreferrer",
-                className: "mt-6 inline-flex items-center justify-center gap-2 rounded-full border border-[#dfba73] bg-[#440d1e] px-7 py-3 font-['Cinzel'] text-xs tracking-[0.3em] text-[#f5d58f] transition hover:bg-[#5d1128] shadow-lg cursor-pointer",
+                className: "mt-6 inline-flex items-center justify-center gap-2 rounded-full border border-[#dfba73] bg-[#072920] px-7 py-3 font-['Cinzel'] text-xs tracking-[0.3em] text-[#f5d58f] transition hover:bg-[#0b3a2d] shadow-lg cursor-pointer",
                 children: [
                   (0, C.jsxs)("svg", {
                     viewBox: "0 0 24 24",
@@ -1405,7 +1405,7 @@ function Ge() {
             className: "space-y-6 max-w-lg mx-auto",
             children: [
               (0, C.jsxs)("div", {
-                className: "rounded-sm border border-[#dfba73]/40 bg-[#260710]/75 p-6 sm:p-7 shadow-2xl space-y-4",
+                className: "rounded-sm border border-[#dfba73]/40 bg-[#041c16]/75 p-6 sm:p-7 shadow-2xl space-y-4",
                 children: [
                   (0, C.jsx)("p", {
                     className: "text-base sm:text-lg leading-relaxed italic text-[#f5d58f] font-serif",
@@ -1453,7 +1453,7 @@ function Ge() {
                 children: [
                   (0, C.jsxs)("a", {
                     href: "tel:+919447753000",
-                    className: "inline-flex items-center gap-1.5 font-['Cinzel'] text-[11px] sm:text-xs tracking-[0.25em] text-[#dfba73]/85 hover:text-[#f5d58f] uppercase transition-colors py-1.5 px-4 rounded-full border border-[#dfba73]/30 bg-[#440d1e]/60 shadow-sm",
+                    className: "inline-flex items-center gap-1.5 font-['Cinzel'] text-[11px] sm:text-xs tracking-[0.25em] text-[#dfba73]/85 hover:text-[#f5d58f] uppercase transition-colors py-1.5 px-4 rounded-full border border-[#dfba73]/30 bg-[#072920]/60 shadow-sm",
                     children: [
                       (0, C.jsx)("span", { className: "font-bold text-[#dfba73]", children: "RSVP :" }),
                       " +91 9447753000"
@@ -1498,7 +1498,7 @@ function Ke() {
   };
 
   return (0, C.jsxs)("div", {
-    className: "min-h-screen bg-[#1a0409] text-[#fdfbf7] selection:bg-[#5d1128] selection:text-[#f5d58f] relative",
+    className: "min-h-screen bg-[#031812] text-[#fdfbf7] selection:bg-[#0b3a2d] selection:text-[#f5d58f] relative",
     children: [
       (0, C.jsx)("audio", { ref: audioRef, src: w, loop: !0, preload: "auto" }),
       showFloatingPetals && (0, C.jsx)(Pe, { count: 18 }),
@@ -1529,7 +1529,7 @@ function Ke() {
             }
           },
           "aria-label": isPlaying ? "Pause music" : "Play music",
-          className: "pulse-gold fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-[#dfba73] bg-[#440d1e]/95 text-[#dfba73] shadow-2xl backdrop-blur transition hover:scale-105 cursor-pointer",
+          className: "pulse-gold fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-[#dfba73] bg-[#072920]/95 text-[#dfba73] shadow-2xl backdrop-blur transition hover:scale-105 cursor-pointer",
           children: isPlaying ? (0, C.jsx)(ye, { className: "h-5 w-5" }) : (0, C.jsx)(xe, { className: "ml-0.5 h-5 w-5" })
         })
     ]
