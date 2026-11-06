@@ -779,7 +779,7 @@ function Be() {
                       maxLength: 8,
                       value: enteredPin,
                       onChange: ev => { setEnteredPin(ev.target.value); setPinError(""); },
-                      placeholder: "Passcode (2222)",
+                      placeholder: "Enter Passcode",
                       autoFocus: !0,
                       className: "w-full text-center tracking-[0.3em] font-['Cinzel'] text-base sm:text-lg py-2 border border-[#dfba73]/40 bg-[#072920] text-[#f5d58f] rounded-sm focus:border-[#dfba73] focus:outline-none placeholder:text-[#fdfbf7]/30 placeholder:tracking-normal placeholder:text-xs"
                     }),
